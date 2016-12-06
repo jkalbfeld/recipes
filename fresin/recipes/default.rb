@@ -2,7 +2,7 @@ resin_user = node[:resin][:user]
 resin_alias = node[:resin][:home]
 resin_base_dir = node[:resin][:base_dir]
 resin_directory = "#{resin_base_dir}/resin-pro-#{node[:resin][:version]}"
-resin_file = "#{Chef::Config[:file_cache_path]}/resin-pro-#{node[:resin][:version]}.tar.gz"
+resin_file = "#{Chef::Config[:file_cache_path]}/resin-#{node[:resin][:version]}.zip"
 maven_search_path = "http://search.maven.org/remotecontent?filepath="
 packages = %w( htop tree wget pcre )
 
@@ -17,7 +17,7 @@ packages.each do |library|
 end
 
 remote_file resin_file do
-  source "http://caucho.com/download/resin-pro-#{node[:resin][:version]}.zip"
+  source "http://caucho.com/download/resin-#{node[:resin][:version]}.zip"
   not_if { ::File.exists?(resin_file) }
 end
 
