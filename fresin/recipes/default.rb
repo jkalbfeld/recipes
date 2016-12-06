@@ -1,8 +1,8 @@
 resin_user = node[:resin][:user]
 resin_alias = node[:resin][:home]
 resin_base_dir = node[:resin][:base_dir]
-resin_directory = "#{resin_base_dir}/resin-pro-#{node[:resin][:version]}"
-resin_file = "#{Chef::Config[:file_cache_path]}/resin-#{node[:resin][:version]}.zip"
+resin_directory = "c:/resin-#{node[:resin][:version]}"
+resin_file = "c:/resin-#{node[:resin][:version]}.zip"
 maven_search_path = "http://search.maven.org/remotecontent?filepath="
 packages = %w( htop tree wget pcre )
 
