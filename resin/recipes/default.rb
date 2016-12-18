@@ -4,9 +4,6 @@ resin_file = "c:/resin-#{resin_version}.zip"
 resin_directory = "c:/resin-#{resin_version}"
 packages = %w( htop tree wget pcre )
 
-directory resin_base_dir do
-end
-
 
 # Install all packages.
 packages.each do |library|
