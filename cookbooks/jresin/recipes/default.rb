@@ -2,12 +2,9 @@ resin_alias = "c:/resin"
 resin_version = "4.0.49"
 resin_file = "c:/resin-#{resin_version}.zip"
 resin_directory = "c:/resin-#{resin_version}"
-packages = %w( htop tree wget pcre )
 
-
-# Install all packages.
-packages.each do |library|
-  package library
+directory "#{resin_directory}" do
+	 action :create
 end
 
 remote_file resin_file do
@@ -16,7 +13,7 @@ remote_file resin_file do
 end
 
 execute 'unzip resin' do
-  command "unzip resin-#{resin_version} --directory #{resin_directory}"
+	command "unzip resin-#{resin_version}.zip --directory #{resin_directory}"
   creates resin_directory
   not_if { ::File.exists?(resin_directory) }
 end
