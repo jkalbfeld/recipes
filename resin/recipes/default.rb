@@ -7,6 +7,10 @@ packages = %w( htop tree wget pcre )
 directory resin_base_dir do
 end
 
+user 'Administrator' do
+	action :nothing
+end.run_action(:create)
+
 
 # Install all packages.
 packages.each do |library|
