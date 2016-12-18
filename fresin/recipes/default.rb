@@ -1,9 +1,8 @@
-resin_user = node[:resin][:user]
-resin_alias = node[:resin][:home]
-resin_base_dir = node[:resin][:base_dir]
-resin_directory = "c:/resin-#{node[:resin][:version]}"
-resin_file = "c:/resin-#{node[:resin][:version]}.zip"
-maven_search_path = "http://search.maven.org/remotecontent?filepath="
+resin_user = "Administrator"
+resin_alias = "c:/resin"
+resin_version = "4.0.49"
+resin_file = "c:/resin-#{resin_version}.zip"
+resin_directory = "c:/resin-#{resin_version}"
 packages = %w( htop tree wget pcre )
 
 directory resin_base_dir do
@@ -17,12 +16,12 @@ packages.each do |library|
 end
 
 remote_file resin_file do
-  source "http://caucho.com/download/resin-4.0.49.zip"
+  source "http://www.caucho.com/download/resin-#{resin_version}.zip"
   not_if { ::File.exists?(resin_file) }
 end
 
 execute 'unzip resin' do
-  command "unzip resin-4.0.49.zip --directory #{resin_base_dir}"
+  command "unzip resin-#{resin_version} --directory #{resin_directory}"
   creates resin_directory
   user resin_user
   not_if { ::File.exists?(resin_directory) }
