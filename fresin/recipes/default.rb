@@ -17,12 +17,12 @@ packages.each do |library|
 end
 
 remote_file resin_file do
-  source "http://caucho.com/download/resin-#{node[:resin][:version]}.zip"
+  source "http://caucho.com/download/resin-4.0.49.zip"
   not_if { ::File.exists?(resin_file) }
 end
 
 execute 'unzip resin' do
-  command "unzip #{resin_file} --directory #{resin_base_dir}"
+  command "unzip resin-4.0.49.zip --directory #{resin_base_dir}"
   creates resin_directory
   user resin_user
   not_if { ::File.exists?(resin_directory) }
