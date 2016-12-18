@@ -2,6 +2,7 @@ resin_alias = "c:/resin"
 resin_version = "4.0.49"
 resin_file = "c:/resin-#{resin_version}.zip"
 resin_directory = "c:/resin-#{resin_version}"
+resin_cmd = "c:/java/bin/java -jar c:/resin/lib/resin.jar"
 
 remote_file resin_file do
   source "http://www.caucho.com/download/resin-#{resin_version}.zip"
@@ -22,12 +23,6 @@ link resin_alias do
   to resin_directory
 end
 
-service "resin_service" do
-	 supports :status => true, :restart => true, :start => true, :stop => true
-	 start_command "c:/java/bin/java -jar c:/resin/lib/resin.jar start"
-	 restart_command "c:/java/bin/java -jar c:/resin/lib/resin.jar restart"
-	 status_command "c:/java/bin/java -jar c:/resin/lib/resin.jar status"
-	 stop_command "c:/java/bin/java -jar c:/resin/lib/resin.jar stop"
-	 action [ :enable, :start ]
+execute 'start resin' do
+	command "#{resin_cmd} status || #{resin_cmd} start"
 end
-
