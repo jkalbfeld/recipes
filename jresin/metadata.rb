@@ -1,4 +1,4 @@
-name             'resin'
+name             'jresin'
 maintainer       'Jonathan Kalbfeld'
 maintainer_email 'jonathan.kalbfeld@thoughtwave.com'
 license          'Apache2'
