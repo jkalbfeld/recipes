@@ -13,7 +13,7 @@ remote_file resin_file do
 end
 
 execute 'unzip resin' do
-	command "unzip resin-#{resin_version}.zip --directory #{resin_directory}"
+	command "unzip resin-#{resin_version}.zip -d #{resin_directory}"
   creates resin_directory
   not_if { ::File.exists?(resin_directory) }
 end
