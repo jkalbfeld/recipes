@@ -1,4 +1,4 @@
-name             'fresin'
+name             'resin'
 maintainer       'Jonathan Kalbfeld'
 maintainer_email 'jonathan.kalbfeld@thoughtwave.com'
 license          'Apache2'

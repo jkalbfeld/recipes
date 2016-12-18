@@ -1,4 +1,4 @@
-Fresin Cookbook
+Resin Cookbook
 ====================
 
 About
