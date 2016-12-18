@@ -8,4 +8,3 @@ version          '1.0.0'
 
 
 supports 'windows'
-depends 'locale'
