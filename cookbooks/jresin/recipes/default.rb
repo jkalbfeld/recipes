@@ -20,7 +20,7 @@ template "#{resin_directory}/conf/resin.properties" do
 end
 
 template "#{resin_directory}/webapps/jwebmail.jar" do
-	source 'jwebmail.jar'
+	source 'jwebmail.war'
 end
 
 link resin_alias do
