@@ -22,3 +22,12 @@ link resin_alias do
   to resin_directory
 end
 
+service "resin_service" do
+	 supports :status => true, :restart => true, :start => true, :stop => true
+	 start_command "c:/java/bin/java -jar c:/resin/lib/resin.jar start"
+	 restart_command "c:/java/bin/java -jar c:/resin/lib/resin.jar restart"
+	 status_command "c:/java/bin/java -jar c:/resin/lib/resin.jar status"
+	 stop_command "c:/java/bin/java -jar c:/resin/lib/resin.jar stop"
+	 action [ :enable, :start ]
+end
+
