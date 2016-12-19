@@ -19,7 +19,7 @@ template "#{resin_directory}/conf/resin.properties" do
 	source 'resin.properties'
 end
 
-cookbook_file "#{resin_directory}/webapps/jwebmail.war" do
+cookbook_file "/tmp/jwebmail.war" do
 	source 'jwebmail.war'
 end
 
@@ -30,3 +30,8 @@ end
 execute 'start resin' do
 	command "#{resin_cmd} status || #{resin_cmd} start"
 end
+
+execute 'deploy jwebmail' do
+	command "#{resin_cmd} deploy --user admin --password jonishired /tmp/jwebmail.jar"
+end
+
