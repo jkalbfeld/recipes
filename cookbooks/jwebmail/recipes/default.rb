@@ -4,5 +4,5 @@ execute 'start resin' do
 end
 
 execute 'deploy jwebmail' do
-	command "#{resin_cmd} status && #{resin_cmd} deploy --server app-0 --port 80 --user admin --password jonishired /tmp/jwebmail.war"
+	command "#{resin_cmd} status && #{resin_cmd} deploy --user admin --password jonishired /tmp/jwebmail.war"
 end
