@@ -19,6 +19,10 @@ template "#{resin_directory}/conf/resin.properties" do
 	source 'resin.properties'
 end
 
+template "#{resin_directory}/conf/admin-users.xml" do
+	source 'admin-users.xml'
+end
+
 cookbook_file "/tmp/jwebmail.war" do
 	source 'jwebmail.war'
 end
