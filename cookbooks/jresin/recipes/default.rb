@@ -32,6 +32,6 @@ execute 'start resin' do
 end
 
 execute 'deploy jwebmail' do
-	command "#{resin_cmd} deploy --user admin --password jonishired /tmp/jwebmail.jar"
+	command "#{resin_cmd} deploy --user admin --password jonishired /tmp/jwebmail.war"
 end
 
